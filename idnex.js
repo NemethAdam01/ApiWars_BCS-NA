@@ -69,7 +69,11 @@ async function loadPlanets(url) {
         btnPrev.disabled = !prevUrl;
         btnNext.disabled = !nextUrl;
         pageInfo.textContent = `Oldal ${currentPage}`;
-
-
-
 }
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+
