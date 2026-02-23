@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Wars - Star Wars Bolygók</title>
+    <meta name="description" content="Star Wars univerzum bolygóinak böngészése a SWAPI API segítségével">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Csillagos háttér -->
+    <div class="stars-bg"></div>
+
+    <div class="container py-4">
+        <!-- Fejléc -->
+        <header class="text-center mb-4">
+            <h1 class="main-title">
+                <span class="title-star">★</span>
+                API WARS
+                <span class="title-star">★</span>
+            </h1>
+            <p class="subtitle">A Csillagok Háborúja univerzum bolygói</p>
+        </header>
+
+        <!-- Navigáció -->
+        <div class="nav-controls d-flex justify-content-center gap-3 mb-4">
+            <button id="btn-prev" class="btn btn-nav">
+                <span class="btn-icon"></span> Előző
+            </button>
+            <span id="page-info" class="page-indicator">1. oldal</span>
+            <button id="btn-next" class="btn btn-nav">
+                Következő <span class="btn-icon"></span>
+            </button>
+        </div>
+
+        <!-- Betöltési jelző -->
+        <div id="loading-spinner" class="loading-container d-none">
+            <div class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Betöltés...</span>
+            </div>
+            <p class="loading-text mt-2">Bolygók betöltése...</p>
+        </div>
+
+        <!-- Bolygó táblázat -->
+        <div id="table-container" class="table-responsive">
+            <table class="table table-bordered table-hover planet-table">
+                <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Átmérő</th>
+                        <th>Éghajlat</th>
+                        <th>Terep</th>
+                        <th>Felszíni víz</th>
+                        <th>Népesség</th>
+                        <th>Lakosok</th>
+                    </tr>
+                </thead>
+                <tbody id="planet-tbody"><tr class="planet-row">
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Lakosok Modális ablak -->
+    <div class="modal fade" id="residentsModal" tabindex="-1" aria-labelledby="residentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal-star-wars">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="residentsModalLabel">Lakosok</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modális betöltési jelző -->
+                    <div id="modal-loading" class="loading-container">
+                        <div class="spinner-border text-warning" role="status">
+                            <span class="visually-hidden">Betöltés...</span>
+                        </div>
+                        <p class="loading-text mt-2">Lakosok betöltése...</p>
+                    </div>
+                    <!-- Lakosok táblázat -->
+                    <div id="residents-table-container" class="table-responsive d-none">
+                        <table class="table table-bordered table-hover residents-table">
+                            <thead>
+                                <tr>
+                                    <th>Név</th>
+                                    <th>Magasság</th>
+                                    <th>Tömeg</th>
+                                    <th>Bőrszín</th>
+                                    <th>Hajszín</th>
+                                    <th>Szemszín</th>
+                                    <th>Születési év</th>
+                                    <th>Nem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="residents-tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-close-modal" data-bs-dismiss="modal">Bezárás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="idnex.js"></script>
+
+
+</body>
+
+</html>
