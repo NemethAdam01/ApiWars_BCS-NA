@@ -1,0 +1,27 @@
+body { font-family: sans-serif; background: #1a1a1a; color: white; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; }
+        .controls { margin-bottom: 20px; display: flex; gap: 10px; align-items: center; }
+       
+        button {
+            padding: 10px 20px; cursor: pointer; background: #ffe81f;
+            border: none; font-weight: bold; border-radius: 5px;
+        }
+        button:disabled { background: #555; cursor: not-allowed; }
+
+        #loader { display: none; margin-left: 10px; color: #ffe81f; }
+
+        table { width: 100%; border-collapse: collapse; background: #222; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #444; }
+        th { background: #333; color: #ffe81f; }
+
+        /* Reszponzív nézet: Mobilokon listává alakul */
+        @media screen and (max-width: 600px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid #444; margin-bottom: 10px; }
+            td { border: none; position: relative; padding-left: 50%; }
+            td:before {
+                position: absolute; left: 10px; width: 45%;
+                font-weight: bold; color: #ffe81f; content: attr(data-label);
+            }
+        }
